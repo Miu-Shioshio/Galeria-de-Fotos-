@@ -1,6 +1,6 @@
-/* ==========================
+/* ===========================
    CONFIGURACIÓN GENERAL
-========================== */
+=========================== */
 
 *{
     margin:0;
@@ -9,47 +9,52 @@
 }
 
 body{
-
     background:transparent;
-
-    overflow-x:hidden;
-
     font-family:Arial, Helvetica, sans-serif;
-
-    padding:18px;
-
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding:20px;
 }
 
-
-/* ==========================
-        GALERÍA
-========================== */
+/* ===========================
+   GALERÍA HORIZONTAL
+=========================== */
 
 .galeria{
 
     display:grid;
 
-    grid-template-columns:
-    repeat(auto-fill,minmax(170px,1fr));
+    grid-auto-flow:column;
 
-    grid-auto-flow:dense;
+    grid-auto-columns:85vw;
 
-    gap:10px;
+    gap:20px;
+
+    overflow-x:auto;
+
+    overflow-y:hidden;
+
+    scroll-snap-type:x mandatory;
+
+    padding-bottom:20px;
 
 }
 
-
-/* ==========================
-        IMÁGENES
-========================== */
+/* ===========================
+   CADA BLOQUE
+=========================== */
 
 .galeria a{
 
-    display:block;
+    scroll-snap-align:start;
 
     overflow:hidden;
 
 }
+
+/* ===========================
+   IMÁGENES
+=========================== */
 
 .galeria img{
 
@@ -61,59 +66,121 @@ body{
 
     display:block;
 
-    transition:.30s;
+    transition:.35s;
 
 }
-
-
-/* ==========================
-      EFECTO AL TOCAR
-========================== */
 
 .galeria img:hover{
 
-    transform:scale(1.04);
+    transform:scale(1.03);
 
 }
 
-
-/* ==========================
-     DISTINTOS TAMAÑOS
-========================== */
-
-.galeria a:nth-child(3n){
-
-    grid-row:span 2;
-
-}
-
-.galeria a:nth-child(5n){
-
-    grid-column:span 2;
-
-}
-
-.galeria a:nth-child(8n){
-
-    grid-row:span 2;
-
-    grid-column:span 2;
-
-}
-
-
-/* ==========================
-        CELULAR
-========================== */
-
-@media(max-width:700px){
+/* ===========================
+   DISEÑO DEL COLLAGE
+=========================== */
 
 .galeria{
 
-grid-template-columns:
-repeat(2,1fr);
+    grid-template-rows:
+    220px
+    220px
+    220px;
 
-gap:8px;
+}
+
+/* Grandes */
+
+.galeria a:nth-child(1){
+
+    grid-row:span 2;
+
+}
+
+.galeria a:nth-child(5){
+
+    grid-row:span 2;
+
+}
+
+.galeria a:nth-child(9){
+
+    grid-row:span 2;
+
+}
+
+.galeria a:nth-child(13){
+
+    grid-row:span 2;
+
+}
+
+/* Anchas */
+
+.galeria a:nth-child(2){
+
+    grid-column:span 2;
+
+}
+
+.galeria a:nth-child(7){
+
+    grid-column:span 2;
+
+}
+
+.galeria a:nth-child(11){
+
+    grid-column:span 2;
+
+}
+
+.galeria a:nth-child(15){
+
+    grid-column:span 2;
+
+}
+
+/* ===========================
+   SCROLL
+=========================== */
+
+.galeria::-webkit-scrollbar{
+
+    height:8px;
+
+}
+
+.galeria::-webkit-scrollbar-thumb{
+
+    background:#ffffff66;
+
+    border-radius:20px;
+
+}
+
+/* ===========================
+   CELULAR
+=========================== */
+
+@media(max-width:700px){
+
+body{
+
+padding:10px;
+
+}
+
+.galeria{
+
+grid-auto-columns:95vw;
+
+grid-template-rows:
+170px
+170px
+170px;
+
+gap:10px;
 
 }
 
