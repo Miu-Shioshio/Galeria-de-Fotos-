@@ -11,33 +11,56 @@
 body{
     background:transparent;
     font-family:Arial, Helvetica, sans-serif;
-    overflow-x:auto;
-    overflow-y:hidden;
     padding:20px;
+    overflow:hidden;
 }
 
 /* ===========================
-   GALERÍA HORIZONTAL
+   GALERÍA
 =========================== */
+
 .galeria{
     display:flex;
     gap:12px;
     overflow-x:auto;
     overflow-y:hidden;
-    padding-bottom:10px;
     scroll-behavior:smooth;
+    align-items:center;
+    padding-bottom:10px;
 }
 
+/* Ocultar barra de desplazamiento */
+
+.galeria::-webkit-scrollbar{
+    display:none;
+}
+
+.galeria{
+    scrollbar-width:none;
+}
+
+/* ===========================
+   FOTOS
+=========================== */
+
 .galeria a{
-    flex:0 0 auto;
+    flex:none;
 }
 
 .galeria img{
-    height:220px;
+
+    max-height:220px;
+
     width:auto;
+
+    height:auto;
+
     display:block;
-    object-fit:cover;
+
+    object-fit:contain;
+
     transition:.3s;
+
 }
 
 .galeria img:hover{
@@ -47,111 +70,17 @@ body{
 }
 
 /* ===========================
-   DISEÑO DEL COLLAGE
-=========================== */
-
-.galeria{
-
-    grid-template-rows:
-    220px
-    220px
-    220px;
-
-}
-
-/* Grandes */
-
-.galeria a:nth-child(1){
-
-    grid-row:span 2;
-
-}
-
-.galeria a:nth-child(5){
-
-    grid-row:span 2;
-
-}
-
-.galeria a:nth-child(9){
-
-    grid-row:span 2;
-
-}
-
-.galeria a:nth-child(13){
-
-    grid-row:span 2;
-
-}
-
-/* Anchas */
-
-.galeria a:nth-child(2){
-
-    grid-column:span 2;
-
-}
-
-.galeria a:nth-child(7){
-
-    grid-column:span 2;
-
-}
-
-.galeria a:nth-child(11){
-
-    grid-column:span 2;
-
-}
-
-.galeria a:nth-child(15){
-
-    grid-column:span 2;
-
-}
-
-/* ===========================
-   SCROLL
-=========================== */
-
-.galeria::-webkit-scrollbar{
-
-    height:8px;
-
-}
-
-.galeria::-webkit-scrollbar-thumb{
-
-    background:#ffffff66;
-
-    border-radius:20px;
-
-}
-
-/* ===========================
    CELULAR
 =========================== */
 
 @media(max-width:700px){
 
-body{
+    body{
+        padding:10px;
+    }
 
-padding:10px;
-
-}
-
-.galeria{
-
-grid-auto-columns:95vw;
-
-grid-template-rows:
-170px
-170px
-170px;
-
-gap:10px;
-
-}
+    .galeria img{
+        max-height:170px;
+    }
 
 }
