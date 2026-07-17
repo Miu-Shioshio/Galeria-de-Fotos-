@@ -16,20 +16,30 @@ body{
 }
 
 /* ===========================
-   GALERÍA
+   GALERÍA HORIZONTAL
 =========================== */
 
 .galeria{
+
     display:flex;
-    gap:12px;
+
+    flex-direction:row;
+
+    align-items:flex-start;
+
+    gap:15px;
+
     overflow-x:auto;
+
     overflow-y:hidden;
+
     scroll-behavior:smooth;
-    align-items:center;
-    padding-bottom:10px;
+
+    padding-bottom:15px;
+
 }
 
-/* Ocultar barra de desplazamiento */
+/* Ocultar barra */
 
 .galeria::-webkit-scrollbar{
     display:none;
@@ -40,47 +50,16 @@ body{
 }
 
 /* ===========================
-   FOTOS
+   ENLACES
 =========================== */
 
 .galeria a{
-    flex:none;
-}
 
-.galeria img{
-
-    max-height:220px;
-
-    width:auto;
-
-    height:auto;
+    flex:0 0 auto;
 
     display:block;
-
-    object-fit:contain;
-
-    transition:.3s;
-
-}
-
-.galeria img:hover{
-
-    transform:scale(1.03);
 
 }
 
 /* ===========================
-   CELULAR
-=========================== */
-
-@media(max-width:700px){
-
-    body{
-        padding:10px;
-    }
-
-    .galeria img{
-        max-height:170px;
-    }
-
-}
+   IMÁGENES
